@@ -1,0 +1,217 @@
+{
+  "mod_elements": [
+    {
+      "name": "DoomBlock",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/command/DoomBlockCommand.java"
+        ]
+      }
+    },
+    {
+      "name": "Doom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/loot_table/blocks/doom.json",
+          "src/main/java/net/mods/doomblock/block/DoomBlock.java",
+          "src/main/resources/assets/doom_block/blockstates/doom.json",
+          "src/main/resources/assets/doom_block/models/block/doom_1.json",
+          "src/main/resources/assets/doom_block/models/item/doom.json",
+          "src/main/resources/assets/doom_block/models/block/doom.json",
+          "src/main/resources/assets/doom_block/models/block/doom_0.json"
+        ]
+      }
+    },
+    {
+      "name": "DoomRedstoneOn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_redstone_on",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomRedstoneOnProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomRedstoneOff",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_redstone_off",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomRedstoneOffProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomEntityWalksOnTheBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_entity_walks_on_the_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomEntityWalksOnTheBlockProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomBlockKillLogicCommand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_block_kill_logic_command",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomBlockKillLogicCommandProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "tag_elements": {
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~Doom@CUSTOM:Doom"
+    ],
+    "BLOCKS:minecraft:needs_iron_tool": [
+      "~Doom@CUSTOM:Doom"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "block.doom_block.doom": "Doom"
+    }
+  },
+  "metadata": {
+    "files": [
+      "src/main/java/net/mods/doomblock/init/DoomBlockModBlocks.java",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModItems.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModTabs.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mods/doomblock/DoomBlockMod.java"
+    ]
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "procedures",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "doom_block",
+    "modName": "Doom Block",
+    "version": "1.0.0",
+    "author": "MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "neoforge-1.21.1",
+    "modElementsPackage": "net.mods.doomblock"
+  },
+  "mcreatorVersion": 202600233518
+}

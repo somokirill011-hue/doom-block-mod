@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "kill=false": {
+      "model": "doom_block:block/doom_0"
+    },
+    "kill=true": {
+      "model": "doom_block:block/doom_1"
+    }
+  }
+}
