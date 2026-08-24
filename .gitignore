@@ -1,0 +1,17 @@
+# MCreator workspace
+.mcreator/
+.eclipse/
+
+# Gradle build files
+.gradle/
+build/
+
+# Minecraft runtime
+run/
+
+# Local config
+local.properties
+
+# System files
+.DS_Store
+Thumbs.db
