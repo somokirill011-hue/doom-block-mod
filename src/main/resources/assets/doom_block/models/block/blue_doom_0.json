@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "doom_block:block/blue_doom_block_off",
-    "particle": "doom_block:block/blue_doom_block_off"
-  },
-  "render_type": "solid"
-}

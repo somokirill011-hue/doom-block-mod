@@ -4,13 +4,12 @@ license="MIT License"
 
 [[mods]]
 modId="doom_block"
-version="1.0.9"
+version="1.0.0"
 displayName="Doom Block"
-displayURL="https://modrinth.com/mod/doom-block"
+displayURL="https://mcreator.net"
 logoFile="logo.png"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
 authors="MisterCosmos"
-description="Adds the Doom Block \u2014 a dangerous element that spreads and kills nearby blocks when activated."
 
 # Start of user code block mod configuration
 # End of user code block mod configuration
@@ -22,14 +21,14 @@ description="Adds the Doom Block \u2014 a dangerous element that spreads and kil
 [[dependencies.doom_block]]
     modId="neoforge"
     type="required"
-    versionRange="[21.1.232,)"
+    versionRange="[21.4.137,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.doom_block]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21.1]"
+    versionRange="[1.21.4]"
     ordering="AFTER"
     side="BOTH"
 
