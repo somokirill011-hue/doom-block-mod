@@ -7,15 +7,9 @@
     "aba"
   ],
   "key": {
-    "a": {
-      "item": "minecraft:iron_block"
-    },
-    "b": {
-      "item": "minecraft:redstone"
-    },
-    "c": {
-      "item": "minecraft:dripstone_block"
-    }
+    "a": "minecraft:iron_block",
+    "b": "minecraft:redstone",
+    "c": "minecraft:dripstone_block"
   },
   "result": {
     "id": "doom_block:doom",
