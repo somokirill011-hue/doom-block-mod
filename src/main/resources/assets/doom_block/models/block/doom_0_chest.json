@@ -1,0 +1,10 @@
+{
+  "parent": "doom_block:custom/doom_block_with_chest",
+  "textures": {
+    "all": "doom_block:block/doom_block_off",
+    "particle": "doom_block:block/doom_block_off",
+    "0": "doom_block:block/doom_block_off",
+    "1": "doom_block:block/normal"
+  },
+  "render_type": "solid"
+}

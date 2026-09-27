@@ -13,9 +13,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.IEventBus;
 
-import net.mods.doomblock.init.DoomBlockModTabs;
-import net.mods.doomblock.init.DoomBlockModItems;
-import net.mods.doomblock.init.DoomBlockModBlocks;
+import net.mods.doomblock.init.*;
 
 import net.minecraft.server.TickTask;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -42,10 +40,15 @@ public class DoomBlockMod {
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
+		DoomBlockModSounds.REGISTRY.register(modEventBus);
 		DoomBlockModBlocks.REGISTRY.register(modEventBus);
 		DoomBlockModItems.REGISTRY.register(modEventBus);
 		DoomBlockModTabs.REGISTRY.register(modEventBus);
+		DoomBlockModMenus.REGISTRY.register(modEventBus);
+		DoomBlockModFluids.REGISTRY.register(modEventBus);
+		DoomBlockModFluidTypes.REGISTRY.register(modEventBus);
 		// Start of user code block mod init
+		net.mods.doomblock.init.DoomBlockModBlockEntities.REGISTRY.register(modEventBus);
 		// End of user code block mod init
 	}
 

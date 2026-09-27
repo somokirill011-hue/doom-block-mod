@@ -1,0 +1,51 @@
+{
+  "_fv": 89,
+  "_type": "fluid",
+  "definition": {
+    "name": "Doom Flart",
+    "bucketName": "Doom Flart Bucket",
+    "textureStill": "doomflart_a",
+    "textureFlowing": "doomflart_a",
+    "textureRenderOverlay": "",
+    "hasFog": false,
+    "fogStartDistance": {
+      "fixedValue": 0.0
+    },
+    "fogEndDistance": {
+      "fixedValue": 48.0
+    },
+    "tintType": "No tint",
+    "canMultiply": false,
+    "flowRate": 4,
+    "levelDecrease": 3,
+    "slopeFindDistance": 5,
+    "spawnParticles": false,
+    "dripParticle": "ASH",
+    "flowStrength": 4.3,
+    "luminosity": 0,
+    "density": 1500,
+    "viscosity": 1160,
+    "temperature": 1300,
+    "type": "WATER",
+    "generateBucket": true,
+    "textureBucket": "doom_bucket",
+    "creativeTabs": [
+      "TOOLS"
+    ],
+    "emptySound": "item.bucket.fill",
+    "rarity": "RARE",
+    "specialInformation": {
+      "fixedValue": []
+    },
+    "resistance": 125.0,
+    "luminance": 0,
+    "lightOpacity": 15,
+    "emissiveRendering": false,
+    "tickRate": 0,
+    "ignitedByLava": false,
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "colorOnMap": "DEFAULT",
+    "onEntityCollides": "DoomFlartMobplayerCollidesBlock"
+  }
+}

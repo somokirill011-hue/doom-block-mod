@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "name": "default",
+      "map": {
+        "missing": "doom_block_off"
+      }
+    }
+  }
+}

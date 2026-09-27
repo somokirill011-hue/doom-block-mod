@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "doom_block:blocks/invisible_doom",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "doom_block:invisible_doom"
+        }
+      ]
+    }
+  ]
+}

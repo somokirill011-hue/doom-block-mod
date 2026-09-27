@@ -1,8 +1,7 @@
 package net.mods.doomblock.block;
 
-import net.mods.doomblock.procedures.DoomRedstoneOnProcedure;
-import net.mods.doomblock.procedures.DoomRedstoneOffProcedure;
-import net.mods.doomblock.procedures.DoomEntityWalksOnTheBlockProcedure;
+import net.mods.doomblock.procedures.*;
+import net.mods.doomblock.block.entity.DoomBlockEntity;
 
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -15,19 +14,44 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.LeverBlock;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.Containers;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.level.BlockGetter;
+import com.google.common.collect.ImmutableMap;
 
-public class DoomBlock extends Block {
+public class DoomBlock extends Block implements EntityBlock {
+	private final ImmutableMap<BlockState, VoxelShape> shapes = this.makeShapes();
 	public static final BooleanProperty KILL = BooleanProperty.create("kill");
+	public static final BooleanProperty KILLING_WITH_A_TOUCH = BooleanProperty.create("killing_with_a_touch");
+	public static final BooleanProperty PARTICLES = BooleanProperty.create("particles");
+	public static final BooleanProperty CHEST = BooleanProperty.create("chest");
 
 	public DoomBlock() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.METAL).strength(4.8f, 11.78f).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.IRON_XYLOPHONE));
-		this.registerDefaultState(this.stateDefinition.any().setValue(KILL, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(KILL, false).setValue(KILLING_WITH_A_TOUCH, false).setValue(PARTICLES, true).setValue(CHEST, false));
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
-		builder.add(KILL);
+		builder.add(KILL, KILLING_WITH_A_TOUCH, PARTICLES, CHEST);
 	}
 
 	@Override
@@ -35,7 +59,7 @@ public class DoomBlock extends Block {
 		BlockState state = super.getStateForPlacement(context);
 		if (state == null)
 			return null;
-		return state.setValue(KILL, false);
+		return state.setValue(KILL, false).setValue(KILLING_WITH_A_TOUCH, false).setValue(PARTICLES, true).setValue(CHEST, false);
 	}
 
 	@Override
@@ -49,8 +73,117 @@ public class DoomBlock extends Block {
 	}
 
 	@Override
+	public void entityInside(BlockState blockstate, Level world, BlockPos pos, Entity entity) {
+		super.entityInside(blockstate, world, pos, entity);
+		DoomEntityWalksOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
+	}
+
+	@Override
 	public void stepOn(Level world, BlockPos pos, BlockState blockstate, Entity entity) {
 		super.stepOn(world, pos, blockstate, entity);
 		DoomEntityWalksOnTheBlockProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
+	}
+
+    @Override
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
+        if (!world.isClientSide()) {
+            double x = pos.getX();
+            double y = pos.getY();
+            double z = pos.getZ();
+
+            RightClickOnDoomBlocksProcedure.execute(world, x, y, z, player);
+            RightClickOnDoomBlockWithItemPlanksProcedure.execute(world, x, y, z, player);
+            OpenGUIProcedure.execute(world, x, y, z, player);
+        }
+        return InteractionResult.SUCCESS;
+    }
+
+	@Override
+	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
+	    super.onPlace(blockstate, world, pos, oldState, moving);
+        double x = pos.getX();
+        double y = pos.getY();
+        double z = pos.getZ();
+	    if (!world.isClientSide) {
+			world.updateNeighborsAt(BlockPos.containing(x, y, z), world.getBlockState(BlockPos.containing(x, y, z)).getBlock());
+	        world.scheduleTick(pos, this, 10);
+	    }
+	}
+	
+	@Override
+	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
+	    boolean kill = blockstate.getValue(KILL);
+	    boolean particles = blockstate.getValue(PARTICLES);
+	
+	    if (kill && particles) {
+	        double x = pos.getX() + 0.5;
+	        double y = pos.getY() + 0.5;
+	        double z = pos.getZ() + 0.5;
+	        world.sendParticles(
+	            new DustParticleOptions(DustParticleOptions.REDSTONE_PARTICLE_COLOR, 1.0F),
+	            x, y, z, 5, 0.3, 0.3, 0.3, 0.0
+	        );
+	        if (world instanceof Level _level)
+				_level.updateNeighborsAt(BlockPos.containing(x, y, z), _level.getBlockState(BlockPos.containing(x, y, z)).getBlock());
+	    }
+	    world.scheduleTick(pos, this, 10);
+	}
+
+	@Override
+	public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
+		BlockEntity tileEntity = worldIn.getBlockEntity(pos);
+		return tileEntity instanceof MenuProvider menuProvider ? menuProvider : null;
+	}
+
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new DoomBlockEntity(pos, state);
+	}
+
+	@Override
+	public boolean triggerEvent(BlockState state, Level world, BlockPos pos, int eventID, int eventParam) {
+		super.triggerEvent(state, world, pos, eventID, eventParam);
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		return blockEntity != null && blockEntity.triggerEvent(eventID, eventParam);
+	}
+
+	@Override
+	public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
+		if (state.getBlock() != newState.getBlock()) {
+			BlockEntity blockEntity = world.getBlockEntity(pos);
+			if (blockEntity instanceof DoomBlockEntity be) {
+				Containers.dropContents(world, pos, be);
+				world.updateNeighbourForOutputSignal(pos, this);
+			}
+			super.onRemove(state, world, pos, newState, isMoving);
+		}
+	}
+
+	@Override
+	public boolean hasAnalogOutputSignal(BlockState state) {
+		return true;
+	}
+
+	@Override
+	public int getAnalogOutputSignal(BlockState blockState, Level world, BlockPos pos) {
+		BlockEntity tileentity = world.getBlockEntity(pos);
+		if (tileentity instanceof DoomBlockEntity be)
+			return AbstractContainerMenu.getRedstoneSignalFromContainer(be);
+		else
+			return 0;
+	}
+
+	private ImmutableMap<BlockState, VoxelShape> makeShapes() {
+		return this.getShapeForEachState(state -> {
+			if (state.getValue(CHEST) == true) {
+				return Shapes.or(box(0, 0, 0, 16, 16, 16), box(6, 16, 5, 10, 20, 9), box(7.605, 18.125, 4.75, 8.355, 19.375, 5));
+			}
+			return box(0, 0, 0, 16, 16, 16);
+		});
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+		return shapes.get(state);
 	}
 }

@@ -4,7 +4,7 @@
       "name": "DoomBlock",
       "type": "command",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "doom_block",
       "metadata": {
         "files": [
@@ -16,7 +16,7 @@
       "name": "Doom",
       "type": "block",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "doom",
       "metadata": {
         "files": [
@@ -28,7 +28,8 @@
           "src/main/resources/assets/doom_block/models/block/doom.json",
           "src/main/resources/assets/doom_block/models/block/doom_0.json"
         ]
-      }
+      },
+      "path": "~/Blocks"
     },
     {
       "name": "DoomRedstoneOn",
@@ -96,7 +97,7 @@
       "name": "DoomEntityWalksOnTheBlock",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "doom_entity_walks_on_the_block",
       "metadata": {
         "dependencies": [
@@ -140,6 +141,71 @@
             "type": "cmdcontext"
           },
           {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomBlockKillLogicCommandProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "SendMessageCommand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "send_message_command",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/SendMessageCommandProcedure.java"
+        ]
+      },
+      "path": "~/procedures/Command"
+    },
+    {
+      "name": "TheBlockKillsTheEntity",
+      "type": "gamerule",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_block_kills_the_entity",
+      "metadata": {
+        "type": "logic",
+        "files": []
+      }
+    },
+    {
+      "name": "DoomBlockRecipeID",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_block_recipe_id",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/recipe/doom_block_recipe_id.json"
+        ]
+      }
+    },
+    {
+      "name": "EditGlobalGameRule",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "edit_global_game_rule",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -157,35 +223,1025 @@
           }
         ],
         "files": [
-          "src/main/java/net/mods/doomblock/procedures/DoomBlockKillLogicCommandProcedure.java"
+          "src/main/java/net/mods/doomblock/procedures/EditGlobalGameRuleProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomBlockDisable",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_block_disable",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/advancement/doom_block_disable.json"
+        ]
+      }
+    },
+    {
+      "name": "DoomAndWoodStoneToolsFood",
+      "type": "loottable",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_and_wood_stone_tools_food",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/loot_table/chests/doom.json"
+        ]
+      }
+    },
+    {
+      "name": "H",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "h",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/HProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "RedDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "red_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/models/block/red_doom_0.json",
+          "src/main/resources/assets/doom_block/models/block/red_doom.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/red_doom.json",
+          "src/main/resources/assets/doom_block/blockstates/red_doom.json",
+          "src/main/java/net/mods/doomblock/block/RedDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/item/red_doom.json",
+          "src/main/resources/assets/doom_block/models/block/red_doom_1.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "DoomBlocksList",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_blocks_list",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/DoomBlocksList.java"
+        ]
+      },
+      "path": "~/Class"
+    },
+    {
+      "name": "OrangeDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "orange_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/models/block/orange_doom.json",
+          "src/main/resources/assets/doom_block/models/item/orange_doom.json",
+          "src/main/java/net/mods/doomblock/block/OrangeDoomBlock.java",
+          "src/main/resources/data/doom_block/loot_table/blocks/orange_doom.json",
+          "src/main/resources/assets/doom_block/models/block/orange_doom_1.json",
+          "src/main/resources/assets/doom_block/models/block/orange_doom_0.json",
+          "src/main/resources/assets/doom_block/blockstates/orange_doom.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "YellowDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "yellow_doom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/block/YellowDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/block/yellow_doom.json",
+          "src/main/resources/assets/doom_block/blockstates/yellow_doom.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/yellow_doom.json",
+          "src/main/resources/assets/doom_block/models/block/yellow_doom_1.json",
+          "src/main/resources/assets/doom_block/models/item/yellow_doom.json",
+          "src/main/resources/assets/doom_block/models/block/yellow_doom_0.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "LimeDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "lime_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/blockstates/lime_doom.json",
+          "src/main/resources/assets/doom_block/models/item/lime_doom.json",
+          "src/main/java/net/mods/doomblock/block/LimeDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/block/lime_doom_1.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/lime_doom.json",
+          "src/main/resources/assets/doom_block/models/block/lime_doom.json",
+          "src/main/resources/assets/doom_block/models/block/lime_doom_0.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "LightBlueDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "light_blue_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/loot_table/blocks/light_blue_doom.json",
+          "src/main/resources/assets/doom_block/models/item/light_blue_doom.json",
+          "src/main/resources/assets/doom_block/models/block/light_blue_doom_1.json",
+          "src/main/resources/assets/doom_block/blockstates/light_blue_doom.json",
+          "src/main/resources/assets/doom_block/models/block/light_blue_doom.json",
+          "src/main/resources/assets/doom_block/models/block/light_blue_doom_0.json",
+          "src/main/java/net/mods/doomblock/block/LightBlueDoomBlock.java"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "CyanDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cyan_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/models/block/cyan_doom.json",
+          "src/main/resources/assets/doom_block/models/block/cyan_doom_0.json",
+          "src/main/java/net/mods/doomblock/block/CyanDoomBlock.java",
+          "src/main/resources/assets/doom_block/blockstates/cyan_doom.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/cyan_doom.json",
+          "src/main/resources/assets/doom_block/models/block/cyan_doom_1.json",
+          "src/main/resources/assets/doom_block/models/item/cyan_doom.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "BlueDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "blue_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/loot_table/blocks/blue_doom.json",
+          "src/main/resources/assets/doom_block/models/block/blue_doom.json",
+          "src/main/java/net/mods/doomblock/block/BlueDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/block/blue_doom_1.json",
+          "src/main/resources/assets/doom_block/models/item/blue_doom.json",
+          "src/main/resources/assets/doom_block/blockstates/blue_doom.json",
+          "src/main/resources/assets/doom_block/models/block/blue_doom_0.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "PurpleDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purple_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/models/item/purple_doom.json",
+          "src/main/java/net/mods/doomblock/block/PurpleDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/block/purple_doom_1.json",
+          "src/main/resources/assets/doom_block/models/block/purple_doom_0.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/purple_doom.json",
+          "src/main/resources/assets/doom_block/models/block/purple_doom.json",
+          "src/main/resources/assets/doom_block/blockstates/purple_doom.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "MagentaDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "magenta_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/models/item/magenta_doom.json",
+          "src/main/resources/assets/doom_block/blockstates/magenta_doom.json",
+          "src/main/resources/assets/doom_block/models/block/magenta_doom_0.json",
+          "src/main/java/net/mods/doomblock/block/MagentaDoomBlock.java",
+          "src/main/resources/data/doom_block/loot_table/blocks/magenta_doom.json",
+          "src/main/resources/assets/doom_block/models/block/magenta_doom.json",
+          "src/main/resources/assets/doom_block/models/block/magenta_doom_1.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "PinkDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "pink_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/doom_block/loot_table/blocks/pink_doom.json",
+          "src/main/java/net/mods/doomblock/block/PinkDoomBlock.java",
+          "src/main/resources/assets/doom_block/blockstates/pink_doom.json",
+          "src/main/resources/assets/doom_block/models/block/pink_doom_0.json",
+          "src/main/resources/assets/doom_block/models/item/pink_doom.json",
+          "src/main/resources/assets/doom_block/models/block/pink_doom_1.json",
+          "src/main/resources/assets/doom_block/models/block/pink_doom.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "WhiteDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "white_doom",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/doom_block/models/block/white_doom_0.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/white_doom.json",
+          "src/main/resources/assets/doom_block/models/block/white_doom.json",
+          "src/main/resources/assets/doom_block/models/block/white_doom_1.json",
+          "src/main/resources/assets/doom_block/blockstates/white_doom.json",
+          "src/main/java/net/mods/doomblock/block/WhiteDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/item/white_doom.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "DoomOnTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_on_tick_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomOnTickUpdateProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomEntityCollidesInTheBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_entity_collides_in_the_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomEntityCollidesInTheBlockProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "InvisibleDoom",
+      "type": "block",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "invisible_doom",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/block/InvisibleDoomBlock.java",
+          "src/main/resources/assets/doom_block/models/item/invisible_doom.json",
+          "src/main/resources/assets/doom_block/models/block/invisible_doom.json",
+          "src/main/resources/data/doom_block/loot_table/blocks/invisible_doom.json",
+          "src/main/resources/assets/doom_block/blockstates/invisible_doom.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "DoomEntityCollidesInTheBlockOther",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_entity_collides_in_the_block_other",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomEntityCollidesInTheBlockOtherProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "RightClickOnDoomBlocks",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "right_click_on_doom_blocks",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/RightClickOnDoomBlocksProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/DoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "DoomBlockModBlockEntities",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_block_mod_block_entities",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/DoomBlockModBlockEntities.java"
+        ]
+      },
+      "path": "~/Class"
+    },
+    {
+      "name": "RedDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "red_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/RedDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "OrangeDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "orange_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/OrangeDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "YellowDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "yellow_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/YellowDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "LimeDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "lime_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/LimeDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "LightBlueDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "light_blue_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/LightBlueDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "BlueDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "blue_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/BlueDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "PurpleDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "purple_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/PurpleDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "MagentaDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "magenta_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/MagentaDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "PinkDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "pink_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/PinkDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "WhiteDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "white_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/WhiteDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "CyanDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cyan_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/CyanDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "InvisibleDoomBlockEntity",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "invisible_doom_block_entity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/InvisibleDoomBlockEntity.java"
+        ]
+      },
+      "path": "~/Blocks/Entity"
+    },
+    {
+      "name": "RightClickOnDoomBlockWithItemPlanks",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "right_click_on_doom_block_with_item_planks",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/RightClickOnDoomBlockWithItemPlanksProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "ChestDoomBlocks",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chest_doom_blocks",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/world/inventory/ChestDoomBlocksMenu.java",
+          "src/main/java/net/mods/doomblock/network/ChestDoomBlocksButtonMessage.java",
+          "src/main/java/net/mods/doomblock/client/gui/ChestDoomBlocksScreen.java"
+        ]
+      }
+    },
+    {
+      "name": "CancelButtonInMiniDoomChest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cancel_button_in_mini_doom_chest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/CancelButtonInMiniDoomChestProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "GiveButtonInMiniDoomChest",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "give_button_in_mini_doom_chest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/GiveButtonInMiniDoomChestProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomFlartMobplayerCollidesBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "doom_flart_mobplayer_collides_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomFlartMobplayerCollidesBlockProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomFlartNeighbourBlockChanges",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_flart_neighbour_block_changes",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/DoomFlartNeighbourBlockChangesProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "DoomFlart",
+      "type": "fluid",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "doom_flart",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mods/doomblock/fluid/DoomFlartFluid.java",
+          "src/main/java/net/mods/doomblock/fluid/types/DoomFlartFluidType.java",
+          "src/main/resources/assets/doom_block/models/block/doom_flart.json",
+          "src/main/java/net/mods/doomblock/block/DoomFlartBlock.java",
+          "src/main/resources/assets/doom_block/blockstates/doom_flart.json",
+          "src/main/java/net/mods/doomblock/item/DoomFlartItem.java",
+          "src/main/resources/assets/doom_block/models/item/doom_flart_bucket.json"
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "RightClickOnDoomBlockOpenGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "right_click_on_doom_block_open_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/RightClickOnDoomBlockOpenGUIProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "LavaNeighbor",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lava_neighbor",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/LavaNeighborProcedure.java"
+        ]
+      },
+      "path": "~/procedures"
+    },
+    {
+      "name": "OpenGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "open_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mods/doomblock/procedures/OpenGUIProcedure.java"
         ]
       },
       "path": "~/procedures"
     }
   ],
   "variable_elements": [],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "sirena",
+      "files": [
+        "sirena_-_vozdushnaya_trevoga_67510996_online-audio-converter.com"
+      ],
+      "category": "neutral",
+      "subtitle": "Sirena"
+    }
+  ],
   "tag_elements": {
     "BLOCKS:minecraft:mineable/pickaxe": [
+      "~InvisibleDoom@CUSTOM:InvisibleDoom",
+      "~WhiteDoom@CUSTOM:WhiteDoom",
+      "~PinkDoom@CUSTOM:PinkDoom",
+      "~MagentaDoom@CUSTOM:MagentaDoom",
+      "~PurpleDoom@CUSTOM:PurpleDoom",
+      "~BlueDoom@CUSTOM:BlueDoom",
+      "~CyanDoom@CUSTOM:CyanDoom",
+      "~LightBlueDoom@CUSTOM:LightBlueDoom",
+      "~LimeDoom@CUSTOM:LimeDoom",
+      "~YellowDoom@CUSTOM:YellowDoom",
+      "~OrangeDoom@CUSTOM:OrangeDoom",
+      "~RedDoom@CUSTOM:RedDoom",
       "~Doom@CUSTOM:Doom"
     ],
     "BLOCKS:minecraft:needs_iron_tool": [
+      "~InvisibleDoom@CUSTOM:InvisibleDoom",
+      "~WhiteDoom@CUSTOM:WhiteDoom",
+      "~PinkDoom@CUSTOM:PinkDoom",
+      "~MagentaDoom@CUSTOM:MagentaDoom",
+      "~PurpleDoom@CUSTOM:PurpleDoom",
+      "~BlueDoom@CUSTOM:BlueDoom",
+      "~CyanDoom@CUSTOM:CyanDoom",
+      "~LightBlueDoom@CUSTOM:LightBlueDoom",
+      "~LimeDoom@CUSTOM:LimeDoom",
+      "~YellowDoom@CUSTOM:YellowDoom",
+      "~OrangeDoom@CUSTOM:OrangeDoom",
+      "~RedDoom@CUSTOM:RedDoom",
       "~Doom@CUSTOM:Doom"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~DoomFlart@CUSTOM:DoomFlart"
     ]
   },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "block.doom_block.doom": "Doom"
+      "block.doom_block.doom": "Doom Block",
+      "command.send_message.0": "Command executed successfully! Blocks activated: count %d (kill\u003d%s) in radius %d blocks",
+      "gamerule.theBlockKillsTheEntity.description": "The block kills entities when you walk",
+      "gamerule.theBlockKillsTheEntity": "blockKillsEntities",
+      "subtitles.sirena": "Sirena",
+      "theBlockKillsTheEntityFalse.send_message": "In 5 minutes, the game rule “theBlockKillsTheEntity” will be set to false! Global change!",
+      "theBlockKillsTheEntityTrue.send_message": "Глобальное изменение! Игровое правило \"theBlockKillsTheEntity\" установлено в значение true!",
+      "advancements.doom_block_disable.descr": "The Doom Block is disabled! You have 5 minutes!",
+      "advancements.doom_block_disable.title": "The Doom Block is disabled",
+      "block.doom_block.red_doom": "Red Doom",
+      "block.doom_block.orange_doom": "Orange Doom",
+      "block.doom_block.yellow_doom": "Yellow Doom",
+      "block.doom_block.lime_doom": "Lime Doom",
+      "block.doom_block.light_blue_doom": "Light Blue Doom",
+      "block.doom_block.cyan_doom": "Cyan Doom",
+      "block.doom_block.blue_doom": "Blue Doom",
+      "block.doom_block.purple_doom": "Purple Doom",
+      "block.doom_block.magenta_doom": "Magenta Doom",
+      "block.doom_block.pink_doom": "Pink Doom",
+      "block.doom_block.white_doom": "White Doom",
+      "block.doom_block.invisible_doom": "Red Doom",
+      "gui.doom_block.chest_doom_blocks.button_cancel": "Cancel",
+      "gui.doom_block.chest_doom_blocks.label_mini_doom_chest": "Mini Doom Chest",
+      "gui.doom_block.chest_doom_blocks.button_give": "Give",
+      "fluid_type.doom_block.doom_flart": "Doom Flart",
+      "block.doom_block.doom_flart": "Doom Flart",
+      "item.doom_block.doom_flart_bucket": "Doom Flart Bucket",
+      "fluid.doom_block.doom_flart": "Doom Flart"
+    },
+    "ru_ru": {
+      "block.doom_block.doom": "Смертоносный блок",
+      "command.send_message.0": "Команда успешно выполнена! Блоки активированы: количество %d (kill\u003d%s) в радиусе %d блоков",
+      "gamerule.theBlockKillsTheEntity.description": "Блок убивает существ при прохождении",
+      "gamerule.theBlockKillsTheEntity": "blockKillsEntities",
+      "subtitles.sirena": "Сирена",
+      "theBlockKillsTheEntityFalse.send_message": "Через 5 минут для игрового правила «theBlockKillsTheEntity» будет установлено значение «false»! Глобальное изменение!",
+      "theBlockKillsTheEntityTrue.send_message": "Глобальное изменение! Игровое правило \"theBlockKillsTheEntity\" установлено в значение true!",
+      "advancements.doom_block_disable.descr": "Блок Doom отключен! У вас есть 5 минут!",
+      "advancements.doom_block_disable.title": "Блок Doom дня отключен!",
+      "block.doom_block.red_doom": "Красный смертоносный блок",
+      "block.doom_block.orange_doom": "Оранжевый смертоносный блок",
+      "block.doom_block.yellow_doom": "Жёлтый смертоносный блок",
+      "block.doom_block.lime_doom": "Лаймовый смертоносный блок",
+      "block.doom_block.light_blue_doom": "Голубой смертоносный блок",
+      "block.doom_block.cyan_doom": "Бирюзовый смертоносный блок",
+      "block.doom_block.blue_doom": "Синий смертоносный блок",
+      "block.doom_block.purple_doom": "Фиолетовый смертоносный блок",
+      "block.doom_block.magenta_doom": "Пурпурный смертоносный блок",
+      "block.doom_block.pink_doom": "Розовый смертоносный блок",
+      "block.doom_block.white_doom": "Белый смертоносный блок",
+      "block.doom_block.invisible_doom": "Red Doom",
+      "gui.doom_block.chest_doom_blocks.button_cancel": "Cancel",
+      "gui.doom_block.chest_doom_blocks.label_mini_doom_chest": "Mini Doom Chest",
+      "gui.doom_block.chest_doom_blocks.button_give": "Give",
+      "fluid_type.doom_block.doom_flart": "Doom Flart",
+      "block.doom_block.doom_flart": "Doom Flart",
+      "item.doom_block.doom_flart_bucket": "Doom Flart Bucket",
+      "fluid.doom_block.doom_flart": "Doom Flart"
     }
   },
   "metadata": {
     "files": [
+      "src/main/java/net/mods/doomblock/init/DoomBlockModFluids.java",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModFluidTypes.java",
+      "src/main/java/net/mods/doomblock/network/MenuStateUpdateMessage.java",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModMenus.java",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModScreens.java",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModGameRules.java",
       "src/main/java/net/mods/doomblock/init/DoomBlockModBlocks.java",
       "src/main/java/net/mods/doomblock/init/DoomBlockModItems.java",
       "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/resources/assets/doom_block/sounds.json",
       "src/main/java/net/mods/doomblock/init/DoomBlockModTabs.java",
       "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mods/doomblock/init/DoomBlockModSounds.java",
       "src/main/java/net/mods/doomblock/DoomBlockMod.java"
     ]
   },
@@ -194,6 +1250,28 @@
     "children": [
       {
         "name": "procedures",
+        "children": [
+          {
+            "name": "Command",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Blocks",
+        "children": [
+          {
+            "name": "Entity",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Class",
+        "children": []
+      },
+      {
+        "name": "Items",
         "children": []
       }
     ]
@@ -201,10 +1279,10 @@
   "workspaceSettings": {
     "modid": "doom_block",
     "modName": "Doom Block",
-    "version": "1.0.0",
+    "version": "1.0.9",
     "description": "Adds the Doom Block — a dangerous element that spreads and kills nearby blocks when activated.",
     "author": "MisterCosmos",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://modrinth.com/mod/doom-block",
     "license": "MIT License",
     "serverSideOnly": false,
     "modPicture": "doom_block_off",

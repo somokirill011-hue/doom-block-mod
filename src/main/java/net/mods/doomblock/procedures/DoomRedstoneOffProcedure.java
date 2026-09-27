@@ -13,5 +13,11 @@ public class DoomRedstoneOffProcedure {
 			if (_bs.getBlock().getStateDefinition().getProperty("kill") instanceof BooleanProperty _booleanProp)
 				world.setBlock(_pos, _bs.setValue(_booleanProp, false), 3);
 		}
+		{
+			BlockPos _pos = BlockPos.containing(x, y, z);
+			BlockState _bs = world.getBlockState(_pos);
+			if (_bs.getBlock().getStateDefinition().getProperty("killing_with_a_touch") instanceof BooleanProperty _booleanProp)
+				world.setBlock(_pos, _bs.setValue(_booleanProp, false), 3);
+		}
 	}
 }

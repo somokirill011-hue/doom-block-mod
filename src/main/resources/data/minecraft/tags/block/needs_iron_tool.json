@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
-    "doom_block:doom"
+    "doom_block:doom",
+    "doom_block:cyan_doom",
+    "doom_block:magenta_doom",
+    "doom_block:invisible_doom",
+    "doom_block:blue_doom",
+    "doom_block:light_blue_doom",
+    "doom_block:pink_doom",
+    "doom_block:white_doom",
+    "doom_block:orange_doom",
+    "doom_block:red_doom",
+    "doom_block:yellow_doom",
+    "doom_block:purple_doom",
+    "doom_block:lime_doom"
   ]
 }

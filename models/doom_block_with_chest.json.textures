@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "name": "default",
+      "map": {
+        "0": "doom_block_off",
+        "1": "normal"
+      }
+    }
+  }
+}
